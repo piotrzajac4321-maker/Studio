@@ -9,8 +9,8 @@ const steps = [
     color: 'bg-ocean-600',
     detail: 'Od 39 zł wpisowego — bez subskrypcji',
     emoji: '💳',
-    bg: 'bg-ocean-50',
-    border: 'border-ocean-100',
+    bg: 'bg-ocean-800',
+    border: 'border-white/10',
   },
   {
     step: '02',
@@ -20,8 +20,8 @@ const steps = [
     color: 'bg-emerald-600',
     detail: 'Weryfikacja AI + moderacja społeczności',
     emoji: '📸',
-    bg: 'bg-emerald-50',
-    border: 'border-emerald-100',
+    bg: 'bg-ocean-800',
+    border: 'border-white/10',
   },
   {
     step: '03',
@@ -31,18 +31,18 @@ const steps = [
     color: 'bg-gold-500',
     detail: 'Dostawa Inpost — bezpłatna, na terenie Polski',
     emoji: '📦',
-    bg: 'bg-yellow-50',
-    border: 'border-yellow-100',
+    bg: 'bg-ocean-800',
+    border: 'border-white/10',
   },
 ]
 
 export default function HowItWorks() {
   return (
-    <section id="jak-dziala" className="py-24 bg-white">
+    <section id="jak-dziala" className="py-24 bg-ocean-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ocean-50 border border-ocean-100 text-ocean-600 text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gold-400 text-sm font-semibold mb-6">
             ✦ Trzy kroki do medalu
           </div>
           <h2 className="section-title mb-4">Jak to działa?</h2>
@@ -58,15 +58,15 @@ export default function HowItWorks() {
           <div className="hidden lg:flex absolute top-1/2 left-[calc(33.33%-16px)] right-[calc(33.33%-16px)] items-center justify-between -translate-y-1/2 pointer-events-none px-4 z-10">
             <div className="flex items-center gap-1 text-slate-300">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className={`h-0.5 w-4 rounded ${i % 2 === 0 ? 'bg-slate-200' : 'bg-transparent'}`} />
+                <div key={i} className={`h-0.5 w-4 rounded ${i % 2 === 0 ? 'bg-white/20' : 'bg-transparent'}`} />
               ))}
-              <ArrowRight size={18} className="text-slate-300 -ml-1" />
+              <ArrowRight size={18} className="text-white/30 -ml-1" />
             </div>
             <div className="flex items-center gap-1 text-slate-300">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className={`h-0.5 w-4 rounded ${i % 2 === 0 ? 'bg-slate-200' : 'bg-transparent'}`} />
+                <div key={i} className={`h-0.5 w-4 rounded ${i % 2 === 0 ? 'bg-white/20' : 'bg-transparent'}`} />
               ))}
-              <ArrowRight size={18} className="text-slate-300 -ml-1" />
+              <ArrowRight size={18} className="text-white/30 -ml-1" />
             </div>
           </div>
 
@@ -86,12 +86,12 @@ export default function HowItWorks() {
                     <Icon className="w-7 h-7 text-white" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-5">{description}</p>
 
-                  <div className={`flex items-center gap-2 p-3 rounded-xl bg-white/60 border ${border}`}>
+                  <div className={`flex items-center gap-2 p-3 rounded-xl bg-white/5 border ${border}`}>
                     <span className="text-xl">{emoji}</span>
-                    <span className="text-slate-600 text-xs font-medium">{detail}</span>
+                    <span className="text-slate-300 text-xs font-medium">{detail}</span>
                   </div>
                 </div>
               </div>

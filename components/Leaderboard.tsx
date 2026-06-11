@@ -21,7 +21,7 @@ function TrendIcon({ trend }: { trend: string }) {
 
 export default function Leaderboard() {
   return (
-    <section id="ranking" className="py-24 bg-slate-50">
+    <section id="ranking" className="py-24 bg-ocean-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -36,13 +36,13 @@ export default function Leaderboard() {
         <div className="flex items-end justify-center gap-4 mb-10 px-4">
           {[topAnglers[1], topAnglers[0], topAnglers[2]].map((angler, idx) => {
             const heights = ['h-24', 'h-32', 'h-20']
-            const podiumColors = ['bg-slate-200', 'bg-gold-400', 'bg-amber-700/30']
-            const labelColors = ['text-slate-600', 'text-gold-600', 'text-amber-700']
+            const podiumColors = ['bg-slate-600', 'bg-gold-400', 'bg-amber-700/30']
+            const labelColors = ['text-slate-400', 'text-gold-400', 'text-amber-700']
             return (
               <div key={angler.rank} className="flex flex-col items-center gap-2 flex-1 max-w-[180px]">
                 <div className="text-3xl">{angler.badge}</div>
                 <div className="text-center">
-                  <div className="font-bold text-slate-900 text-sm">{angler.name.split(' ')[0]}</div>
+                  <div className="font-bold text-white text-sm">{angler.name.split(' ')[0]}</div>
                   <div className={`font-black text-lg ${labelColors[idx]}`}>{angler.points.toLocaleString('pl-PL')}</div>
                   <div className="text-slate-400 text-xs">pkt</div>
                 </div>
@@ -55,8 +55,8 @@ export default function Leaderboard() {
         </div>
 
         {/* Table */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-          <div className="hidden md:grid grid-cols-[auto_1fr_auto_auto_auto_auto] gap-4 px-6 py-3 bg-slate-50 border-b border-slate-100 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+        <div className="bg-ocean-800 rounded-2xl border border-white/8 overflow-hidden">
+          <div className="hidden md:grid grid-cols-[auto_1fr_auto_auto_auto_auto] gap-4 px-6 py-3 bg-ocean-900 border-b border-white/8 text-xs font-semibold text-slate-400 uppercase tracking-wider">
             <div>#</div>
             <div>Wędkarz</div>
             <div className="text-center">Specjalność</div>
@@ -68,7 +68,7 @@ export default function Leaderboard() {
           {topAnglers.map((angler, i) => (
             <div
               key={angler.rank}
-              className={`grid md:grid-cols-[auto_1fr_auto_auto_auto_auto] gap-4 items-center px-6 py-4 border-b border-slate-50 hover:bg-slate-50/70 transition-colors cursor-pointer
+              className={`grid md:grid-cols-[auto_1fr_auto_auto_auto_auto] gap-4 items-center px-6 py-4 border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer
                 ${i === 0 ? 'bg-gold-50/40' : ''}`}
             >
               {/* Rank */}
@@ -86,7 +86,7 @@ export default function Leaderboard() {
                   {angler.fish}
                 </div>
                 <div>
-                  <div className="font-semibold text-slate-900">{angler.name}</div>
+                  <div className="font-semibold text-white">{angler.name}</div>
                   <div className="flex items-center gap-1 text-slate-400 text-xs">
                     <MapPin size={10} />
                     {angler.city}
@@ -102,13 +102,13 @@ export default function Leaderboard() {
               </div>
 
               {/* Catches */}
-              <div className="hidden md:block text-right text-slate-600 font-medium">
+              <div className="hidden md:block text-right text-slate-400 font-medium">
                 {angler.catches} 🎣
               </div>
 
               {/* Points */}
               <div className="text-right">
-                <div className={`font-bold ${i === 0 ? 'text-gold-600 text-lg' : 'text-slate-900'}`}>
+                <div className={`font-bold ${i === 0 ? 'text-gold-400 text-lg' : 'text-white'}`}>
                   {angler.points.toLocaleString('pl-PL')}
                 </div>
                 <div className="text-xs text-slate-400">pkt</div>

@@ -143,7 +143,7 @@ const challenges = [
 
 export default function Challenges() {
   return (
-    <section id="wyzwania" className="py-24 bg-white">
+    <section id="wyzwania" className="py-24 bg-ocean-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4">
@@ -156,7 +156,7 @@ export default function Challenges() {
             </h2>
           </div>
           <div className="flex items-center gap-3">
-            <select className="px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-600 bg-white focus:outline-none focus:border-ocean-400">
+            <select className="px-4 py-2.5 rounded-xl border border-white/10 text-sm text-slate-300 bg-ocean-800 focus:outline-none focus:border-ocean-400">
               <option>Wszystkie kategorie</option>
               <option>Gatunek</option>
               <option>Waga</option>
@@ -164,7 +164,7 @@ export default function Challenges() {
               <option>Rodzinne</option>
               <option>Grand Prix</option>
             </select>
-            <select className="px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-600 bg-white focus:outline-none focus:border-ocean-400">
+            <select className="px-4 py-2.5 rounded-xl border border-white/10 text-sm text-slate-300 bg-ocean-800 focus:outline-none focus:border-ocean-400">
               <option>Najtańsze</option>
               <option>Kończące się</option>
               <option>Najpopularniejsze</option>
@@ -242,12 +242,12 @@ export default function Challenges() {
                   <div className="flex items-center justify-between text-sm mb-4">
                     <div className="flex items-center gap-1.5 text-slate-500">
                       <Users size={14} />
-                      <span className="font-medium text-slate-700">{c.participants}</span>
+                      <span className="font-medium text-slate-300">{c.participants}</span>
                       <span>zapisanych</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-500">
                       <Clock size={14} />
-                      <span className={`font-semibold ${c.daysLeft <= 5 ? 'text-red-500' : 'text-slate-700'}`}>
+                      <span className={`font-semibold ${c.daysLeft <= 5 ? 'text-red-400' : 'text-slate-300'}`}>
                         {c.daysLeft} dni
                       </span>
                     </div>
@@ -265,7 +265,7 @@ export default function Challenges() {
                         {almostFull ? `⚠️ Tylko ${c.spotsLeft} wolnych!` : `${c.spotsLeft} dostępnych`}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all ${
                           almostFull ? 'bg-red-400' : 'bg-ocean-500'
@@ -280,7 +280,7 @@ export default function Challenges() {
                     <span className="text-lg">🎁</span>
                     <div>
                       <div className="text-[10px] text-yellow-600 font-semibold uppercase tracking-wide">Nagroda główna</div>
-                      <div className="text-sm font-bold text-slate-800">{c.topPrize}</div>
+                      <div className="text-sm font-bold text-white">{c.topPrize}</div>
                     </div>
                   </div>
 

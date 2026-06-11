@@ -47,7 +47,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="funkcje" className="py-24 bg-white">
+    <section id="funkcje" className="py-24 bg-ocean-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -75,7 +75,7 @@ export default function Features() {
                   <Icon className="w-6 h-6 text-white" />
                 </div>
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">{title}</h3>
+              <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed">{description}</p>
             </div>
           ))}

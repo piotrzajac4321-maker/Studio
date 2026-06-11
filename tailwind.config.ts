@@ -18,11 +18,19 @@ const config: Config = {
           500: '#0e6fa0',
           600: '#085585',
           700: '#053d66',
-          800: '#02274a',
-          900: '#011530',
-          950: '#000d1e',
+          800: '#0A1628',
+          900: '#060C18',
+          950: '#030709',
         },
+        // UI accent — teal/cyan (FishPro style)
         gold: {
+          300: '#A5F3FC',
+          400: '#22D3EE',
+          500: '#06B6D4',
+          600: '#0891B2',
+        },
+        // Physical medal color (real gold, used only for medal icons/rewards)
+        medal: {
           300: '#fde68a',
           400: '#fbbf24',
           500: '#d4a017',
@@ -39,8 +47,8 @@ const config: Config = {
         display: ['Montserrat', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-ocean': 'linear-gradient(135deg, #011530 0%, #053d66 50%, #085585 100%)',
-        'gradient-gold': 'linear-gradient(135deg, #d4a017 0%, #fbbf24 100%)',
+        'gradient-ocean': 'linear-gradient(135deg, #030709 0%, #060C18 50%, #0A1628 100%)',
+        'gradient-teal': 'linear-gradient(135deg, #0891B2 0%, #22D3EE 100%)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

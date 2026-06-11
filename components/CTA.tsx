@@ -2,7 +2,7 @@ import { ArrowRight, Smartphone, Globe, Package } from 'lucide-react'
 
 export default function CTA() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-ocean-900">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative wave-bg fish-pattern rounded-3xl overflow-hidden p-12 md:p-16 text-center">
           <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-gold-500/10 blur-3xl" />
