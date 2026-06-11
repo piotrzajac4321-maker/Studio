@@ -1,79 +1,97 @@
-import { UserPlus, Camera, Trophy, ArrowRight } from 'lucide-react'
+import { CreditCard, Camera, Package, ArrowRight } from 'lucide-react'
 
 const steps = [
   {
     step: '01',
-    icon: UserPlus,
-    title: 'Zarejestruj się',
-    description: 'Utwórz konto w 30 sekund. Wybierz region, ulubione gatunki i typ wędkarstwa. Profil gotowy.',
+    icon: CreditCard,
+    title: 'Wybierz i opłać wyzwanie',
+    description: 'Przeglądaj aktywne wyzwania. Wybierz interesujące Cię — sezonowe, gatunkowe, rodzinne. Opłać wpisowe online (karta, BLIK, przelew).',
     color: 'bg-ocean-600',
-    detail: 'Bezpłatne konto na start, premium od 29 zł/miesiąc',
+    detail: 'Od 39 zł wpisowego — bez subskrypcji',
+    emoji: '💳',
+    bg: 'bg-ocean-50',
+    border: 'border-ocean-100',
   },
   {
     step: '02',
     icon: Camera,
-    title: 'Dołącz do wyzwania',
-    description: 'Wybierz aktywne wyzwanie — miesięczne, sezonowe lub drużynowe. Złap rybę, zrób zdjęcie i prześlij wynik.',
-    color: 'bg-gold-500',
-    detail: 'Weryfikacja AI w < 30 sekund',
+    title: 'Złów i udokumentuj',
+    description: 'W czasie trwania wyzwania łów ryby i przesyłaj wyniki przez aplikację. Zdjęcie + wymiary + GPS. AI weryfikuje wynik w ciągu 30 sekund.',
+    color: 'bg-emerald-600',
+    detail: 'Weryfikacja AI + moderacja społeczności',
+    emoji: '📸',
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-100',
   },
   {
     step: '03',
-    icon: Trophy,
-    title: 'Zbieraj punkty i nagrody',
-    description: 'Każdy połów to punkty. Pnij się w rankingu, zdobywaj odznaki i wymieniaj punkty na nagrody od partnerów.',
-    color: 'bg-emerald-600',
-    detail: 'Nagrody o wartości 5000+ zł miesięcznie',
+    icon: Package,
+    title: 'Odbierz medal pocztą',
+    description: 'Ukończyłeś wyzwanie? Brawo! Twój medal, koszulka i certyfikat jadą do Ciebie Inpostem. Dostajesz paczkę w ciągu 14 dni od zakończenia.',
+    color: 'bg-gold-500',
+    detail: 'Dostawa Inpost — bezpłatna, na terenie Polski',
+    emoji: '📦',
+    bg: 'bg-yellow-50',
+    border: 'border-yellow-100',
   },
 ]
 
 export default function HowItWorks() {
   return (
-    <section id="jak-dziala" className="py-24 bg-slate-50">
+    <section id="jak-dziala" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ocean-50 border border-ocean-100 text-ocean-600 text-sm font-semibold mb-6">
-            ✦ Prosty jak casting
+            ✦ Trzy kroki do medalu
           </div>
-          <h2 className="section-title mb-4">
-            Jak to działa?
-          </h2>
+          <h2 className="section-title mb-4">Jak to działa?</h2>
           <p className="section-subtitle">
-            Trzy kroki dzielą Cię od pierwszego wyzwania.
+            Dokładnie jak wyzwania biegowe — ale dla wędkarzy.
+            Opłać, złów, odbierz medal pocztą.
           </p>
         </div>
 
         {/* Steps */}
         <div className="relative">
-          {/* Connecting line */}
-          <div className="hidden lg:block absolute top-16 left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-0.5 bg-gradient-to-r from-ocean-200 via-gold-300 to-emerald-300" />
+          {/* Connecting arrows desktop */}
+          <div className="hidden lg:flex absolute top-1/2 left-[calc(33.33%-16px)] right-[calc(33.33%-16px)] items-center justify-between -translate-y-1/2 pointer-events-none px-4 z-10">
+            <div className="flex items-center gap-1 text-slate-300">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className={`h-0.5 w-4 rounded ${i % 2 === 0 ? 'bg-slate-200' : 'bg-transparent'}`} />
+              ))}
+              <ArrowRight size={18} className="text-slate-300 -ml-1" />
+            </div>
+            <div className="flex items-center gap-1 text-slate-300">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className={`h-0.5 w-4 rounded ${i % 2 === 0 ? 'bg-slate-200' : 'bg-transparent'}`} />
+              ))}
+              <ArrowRight size={18} className="text-slate-300 -ml-1" />
+            </div>
+          </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {steps.map(({ step, icon: Icon, title, description, color, detail }, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center">
-                {/* Step number + icon */}
-                <div className="relative mb-6">
-                  <div className={`w-16 h-16 rounded-2xl ${color} flex items-center justify-center shadow-lg mb-0 z-10 relative`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-white shadow border border-slate-100 flex items-center justify-center">
-                    <span className="text-xs font-black text-slate-400">{step}</span>
+          <div className="grid lg:grid-cols-3 gap-6">
+            {steps.map(({ step, icon: Icon, title, description, color, detail, emoji, bg, border }, i) => (
+              <div key={i} className={`relative rounded-2xl border-2 ${border} ${bg} p-8`}>
+                {/* Step badge */}
+                <div className="absolute -top-4 left-6 flex items-center gap-2">
+                  <div className={`w-8 h-8 rounded-full ${color} flex items-center justify-center`}>
+                    <span className="text-white text-xs font-black">{step}</span>
                   </div>
                 </div>
 
-                {/* Arrow between steps (mobile) */}
-                {i < 2 && (
-                  <div className="lg:hidden flex justify-center my-2 text-slate-300">
-                    <ArrowRight size={20} className="rotate-90" />
+                <div className="pt-2">
+                  {/* Icon */}
+                  <div className={`w-14 h-14 rounded-2xl ${color} flex items-center justify-center mb-5 shadow-md`}>
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                )}
 
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 w-full">
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-4">{description}</p>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-xs font-medium">
-                    ℹ️ {detail}
+                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{description}</p>
+
+                  <div className={`flex items-center gap-2 p-3 rounded-xl bg-white/60 border ${border}`}>
+                    <span className="text-xl">{emoji}</span>
+                    <span className="text-slate-600 text-xs font-medium">{detail}</span>
                   </div>
                 </div>
               </div>
@@ -81,11 +99,22 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <a href="#register" className="btn-primary">
-            Zacznij teraz — to proste!
-            <ArrowRight size={20} />
+        {/* Analogy callout */}
+        <div className="mt-12 p-6 bg-ocean-950 rounded-2xl flex flex-col md:flex-row items-center gap-6">
+          <div className="flex items-center gap-4">
+            <div className="text-4xl">🏃</div>
+            <div className="h-12 w-0.5 bg-white/10 hidden md:block" />
+            <div className="text-4xl">🎣</div>
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <h4 className="text-white font-bold text-lg mb-1">To samo co wyzwania biegowe — tylko na wodzie</h4>
+            <p className="text-white/50 text-sm">
+              Tak jak płacisz za bieg 5K i dostajesz medal+koszulkę — tutaj płacisz za wyzwanie wędkarskie
+              i dostajesz medal+koszulkę. Możesz łowić z domu, z łódki, z brzegu — jak chcesz.
+            </p>
+          </div>
+          <a href="#wyzwania" className="flex-shrink-0 px-6 py-3 rounded-full bg-gold-500 text-white font-semibold text-sm hover:bg-gold-600 transition-colors whitespace-nowrap">
+            Wybierz wyzwanie →
           </a>
         </div>
       </div>

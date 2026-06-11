@@ -4,8 +4,8 @@ import StatsBar from '@/components/StatsBar'
 import Features from '@/components/Features'
 import HowItWorks from '@/components/HowItWorks'
 import Challenges from '@/components/Challenges'
+import MedalShowcase from '@/components/MedalShowcase'
 import Leaderboard from '@/components/Leaderboard'
-import Pricing from '@/components/Pricing'
 import Testimonials from '@/components/Testimonials'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
@@ -16,11 +16,11 @@ export default function Home() {
       <Navigation />
       <Hero />
       <StatsBar />
-      <Features />
       <HowItWorks />
       <Challenges />
+      <MedalShowcase />
+      <Features />
       <Leaderboard />
-      <Pricing />
       <Testimonials />
       <CTA />
       <Footer />
