@@ -60,16 +60,16 @@ export default function Navigation() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="#login"
+              href="/app"
               className="px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors"
             >
-              Zaloguj się
+              Otwórz aplikację
             </a>
             <a
-              href="#register"
+              href="/app/wyzwania"
               className="px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-gold-500 to-gold-400 text-white hover:from-gold-600 hover:to-gold-500 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
-              Dołącz za darmo
+              Dołącz do wyzwania
             </a>
           </div>
 

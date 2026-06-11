@@ -1,0 +1,39 @@
+{
+  "name": "RyboLiga — Wędkarskie Wyzwania",
+  "short_name": "RyboLiga",
+  "description": "Wędkarskie wyzwania z medalami. Złów rybę, zdobądź medal, odbierz pocztą.",
+  "start_url": "/app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#011530",
+  "theme_color": "#011530",
+  "lang": "pl",
+  "categories": ["sports", "lifestyle", "social"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dodaj połów",
+      "url": "/app/dodaj",
+      "description": "Szybko zarejestruj nowy połów"
+    },
+    {
+      "name": "Wyzwania",
+      "url": "/app/wyzwania",
+      "description": "Przeglądaj aktywne wyzwania"
+    }
+  ]
+}
