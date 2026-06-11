@@ -1,4 +1,4 @@
-name: Deploy Preview do Vercel
+name: Deploy do GitHub Pages
 
 on:
   push:
@@ -6,31 +6,50 @@ on:
       - claude/fishing-challenge-platform-nyamib
       - main
 
+# Pozwolenie na zapis do GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Tylko jeden deploy na raz
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
-  deploy:
-    name: Deploy
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install
         run: npm ci
 
-      - name: Deploy to Vercel
-        id: vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
-          working-directory: ./
+      - name: Build (static export)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Studio
+          # Hasło do podglądu — zmień na swoje
+          NEXT_PUBLIC_PREVIEW_PASS: ${{ secrets.PREVIEW_PASS }}
 
-      - name: Print preview URL
-        run: echo "✅ Podgląd dostępny pod adresem ${{ steps.vercel.outputs.preview-url }}"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
